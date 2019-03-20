@@ -8,9 +8,6 @@
 <title>로그인</title>
 
 <script type="text/javascript">
-	// 	window.onload = {
-	// 		var forObj = document.getElementById('loginForm')  // 나중에 미래에 쓸꺼다
-	// 	}
 
 	function loginSubmitFnc() {
 		var formObj = document.getElementById('loginForm');
@@ -29,20 +26,28 @@
 		System.out.println(memberDto.getEmail());
 		System.out.println("님의 정보가 존재합니다");
 		
-// 		String contextPathStr = request.getContextPath() + "/member/list";
-		
-// 		response.sendRedirect(contextPathStr);
+
 	}
 %>
 
 <body>
+<jsp:include page="/Header.jsp"/>
 	<h2>사용자 로그인</h2>
-	<form action="./login" id="loginForm" method="post">
-		이메일: <input type="text" name="email"><br> 
-		암호: <input type="password" name="password"><br> 
-			<input type="button" value="로그인" onclick="loginSubmitFnc()">
-
+	<form action="/JLBoard/member/login" id="loginForm" method="post">
+	<table>
+	<tr>
+		<td>이메일</td>
+		<td><input type="text" name="email"></td>
+	</tr>
+	<tr>
+		<td>암호</td>
+		<td><input type="password" name="password"></td>
+	</tr>
+	</table>
+		<input type="button" value="로그인" onclick="loginSubmitFnc()">
+		<input type="button" value="메인 페이지로" onclick='location="/JLBoard"'>
 	</form>
+
 
 </body>
 </html>
