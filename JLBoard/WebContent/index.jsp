@@ -10,5 +10,7 @@
 	<jsp:include page="/Header.jsp"></jsp:include>
 	<h1>메인페이지</h1>
 	<h1><img src="image/Unexpected.jpg" alt="상상도못한정체" /></h1>
+	
+	<input type="button" value="게시판 목록" onclick="location='./board/list'">
 </body>
 </html>
