@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet{
 			rd.forward(req,res);
 		}else {
 			String contextPathStr = req.getContextPath() + "../"; //메인페이지 띄우고싶은데
-			res.sendRedirect(contextPathStr);					  //이렇게해놔도되나?
+			res.sendRedirect(contextPathStr);					  //이렇게해놔도되나? ->됩니다
 		}
 		
 	}
@@ -47,9 +47,12 @@ public class LoginServlet extends HttpServlet{
 	      String user = "jsp";
 	      String password = "jsp";
 	      
+	      req.setCharacterEncoding("UTF-8");
+	      
 	      String email = req.getParameter("email");
 	      String pwd = req.getParameter("password");
 	      String name = "";
+	      int no = 0;
 	      
 	      
 	      String sql = "";
@@ -60,7 +63,7 @@ public class LoginServlet extends HttpServlet{
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 	         conn = DriverManager.getConnection(url, user, password);
 	                 
-	         sql += "SELECT NAME, EMAIL";
+	         sql += "SELECT NAME, EMAIL, NO";
 	         sql += " FROM MEMBER";
 	         sql += " WHERE EMAIL = ?";
 	         sql += " AND PWD = ?";
@@ -77,14 +80,15 @@ public class LoginServlet extends HttpServlet{
 	         
 	         
 	         if (rs.next()) {
-				email = rs.getString("email");
-				name = rs.getString("name");
-				
+	        	
+				email = rs.getString("EMAIL");
+				name = rs.getString("NAME");
+				no = rs.getInt("NO");
 				MemberDto memberDto = new MemberDto();
 				//2
 				memberDto.setEmail(email);
 				memberDto.setName(name);
-				
+				memberDto.setNo(no);
 				HttpSession session = req.getSession();	//new 해서 session 만든것과 비슷
 				session.setAttribute("member", memberDto);//세션은 리다이렉트로 안넘어가도 살아있음!
 				

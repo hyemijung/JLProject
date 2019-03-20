@@ -1,6 +1,8 @@
 package com.jl.member;
 
+//기본
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,37 +10,33 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.jl.member.MemberDto;
+@WebServlet(value="/member/delete")
+// 구우우우우웃!어노테이션으로 개꿀
+//jsp3.0부터 쓸 수 있습니당
 
-@WebServlet(value="/member/update")
-public class MemberUpdate extends HttpServlet{
+public class MemberDelete extends HttpServlet{
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse res) 
-			throws ServletException, IOException {
-		System.out.println("update의 doGet 실행");
-		// TODO Auto-generated method stub
-		Connection conn = null;
+	 protected void doGet(HttpServletRequest req, HttpServletResponse res)
+			 throws ServletException, IOException {
+	      // TODO Auto-generated method stub
+
+		 Connection conn = null;
 		 PreparedStatement pstmt = null;
-		 ResultSet rs = null;
 		 //셋이 순서 꼭 지켜야됨
 		 //지울때는 반대로 지워야됨 rs 지우고 pstmt 지우고 conn 지워야됨
 		 
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "jsp";
-		String password =" jsp";
-		
-//		int no = Integer.parseInt(req.getParameter("no"));
+		String password ="jsp";
+		 
 		String email = req.getParameter("email");
-//		System.out.println("이메일" + email + "담았음");
 		String sql = "";
 		
 		
@@ -50,63 +48,27 @@ public class MemberUpdate extends HttpServlet{
 			conn = DriverManager.getConnection(url, user, password);
 			
 			
-			sql += "SELECT NO, EMAIL, NAME, CREDATE";
-			sql += " FROM MEMBER";
+			sql += "DELETE FROM MEMBER";
 			sql += " WHERE EMAIL = ?";
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, email);
 			
+			pstmt.executeUpdate();
 			
-			rs = pstmt.executeQuery();
-			
-			MemberDto memberDto = null;
-			int no = 0;
-			String name = "";
-			Date creDate = null;
-			
-//			System.out.println(rs.getInt("NO") + "담았음");
-			while (rs.next()) {
-				no = rs.getInt("NO");
-				System.out.println(no + "담았음");
-				name = rs.getString("NAME");
-				System.out.println(name + "담았음");
-				email = rs.getString("EMAIL");
-				creDate = rs.getDate("CREDATE");
-				memberDto = new MemberDto(no, name, email, creDate);
-				System.out.println(memberDto.getNo());
-			}
-			
-			
-			req.setAttribute("memberDto", memberDto);
-			res.setCharacterEncoding("UTF-8");
-			
-			RequestDispatcher dispatcher = req.getRequestDispatcher("./memberUpdateForm.jsp");
-			
-			dispatcher.include(req,res);
+			res.sendRedirect("../");
 			
 			
 			
+
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
-			req.setAttribute("error", e);//key,value 라고 합니다
-	    	  RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
-	    	  
-	    	  dispatcher.forward(req, res);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			if(rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			} // if(rs != null) end
 			
 			if(pstmt != null) {
 				try {
@@ -124,14 +86,14 @@ public class MemberUpdate extends HttpServlet{
 				}
 			}
 		} // finally end
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
-		System.out.println("doPost를 탄다");
+	}
+	 
+	 //update를 업어오느라 이부분 삭제가 안된듯?
+	 //일단은 놔두기(03/20 04:45 P.M.)
+	 protected void doPost(HttpServletRequest req, HttpServletResponse res)
+			 throws ServletException, IOException {
+		 System.out.println("doPost를 탄다");
 		 Connection conn = null;
 	      PreparedStatement pstmt = null;
 	      //결과값없어서 resultset없어도됨
@@ -144,17 +106,17 @@ public class MemberUpdate extends HttpServlet{
 	      
 	      String email = req.getParameter("email");
 	      String name = req.getParameter("name");
-	      int mNo = Integer.parseInt(req.getParameter("no"));
+	      int mNo = Integer.parseInt(req.getParameter("mNo"));
 	      String sql = "";
 
 	      try {
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 	         conn = DriverManager.getConnection(url, user, password);
 	         
-	         sql += "UPDATE MEMBER";
-	         sql += " SET EMAIL = ?, NAME = ?";
-	         sql += " WHERE NO = ?";
-            
+	         sql += "UPDATE MEMBERS";
+	         sql += " SET EMAIL = ?, MNAME = ?,MOD_DATE = SYSDATE";
+	         sql += " WHERE MNO = ?";
+             
 	         pstmt = conn.prepareStatement(sql);
 	         
 	         pstmt.setString(1,  email);
@@ -164,7 +126,7 @@ public class MemberUpdate extends HttpServlet{
 	         
 	         pstmt.executeUpdate();
 	         
-	         res.sendRedirect("../");
+	         res.sendRedirect("./list");
 	      } catch (ClassNotFoundException e) {
 	         // TODO Auto-generated catch block
 	         e.printStackTrace();
@@ -196,7 +158,22 @@ public class MemberUpdate extends HttpServlet{
 	            }
 	         }
 	      } // finally end
-	}
-	
 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+	 }
+
+	
 }
