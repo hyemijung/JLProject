@@ -39,6 +39,7 @@ public class MemberDelete extends HttpServlet{
 		String email = req.getParameter("email");
 		String sql = "";
 		
+		int no = Integer.parseInt(req.getParameter("no"));
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
