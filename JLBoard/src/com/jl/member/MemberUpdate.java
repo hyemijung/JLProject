@@ -23,7 +23,7 @@ public class MemberUpdate extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) 
 			throws ServletException, IOException {
-		System.out.println("update의 doGet 실행");
+		System.out.println("member update의 doGet 실행");
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		 PreparedStatement pstmt = null;
@@ -131,7 +131,7 @@ public class MemberUpdate extends HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("doPost를 탄다");
+		System.out.println("memberUpdate의 doPost를 탄다");
 		 Connection conn = null;
 	      PreparedStatement pstmt = null;
 	      //결과값없어서 resultset없어도됨
@@ -146,25 +146,27 @@ public class MemberUpdate extends HttpServlet{
 	      String name = req.getParameter("name");
 	      int mNo = Integer.parseInt(req.getParameter("no"));
 	      String sql = "";
-
+	      System.out.println("여긴..try전이야...여기까진 오니...?");
 	      try {
 	         Class.forName("oracle.jdbc.driver.OracleDriver");
 	         conn = DriverManager.getConnection(url, user, password);
-	         
+	         System.out.println("여긴 try 안이야~!");
 	         sql += "UPDATE MEMBER";
 	         sql += " SET EMAIL = ?, NAME = ?";
 	         sql += " WHERE NO = ?";
             
 	         pstmt = conn.prepareStatement(sql);
-	         
+	         System.out.println("여긴 pstmt에 담은 후야");
 	         pstmt.setString(1,  email);
 	         pstmt.setString(2,  name);
 	         pstmt.setInt(3,  mNo);
-	         
+	         System.out.println("여기는 pstmt에 set을 모두 마친 상태야^^!");
 	         
 	         pstmt.executeUpdate();
+	         System.out.println("이제 executeUpdate를 마쳤어@~");
 	         
-	         res.sendRedirect("./logout");
+	         System.out.println("오니...?");
+	         res.sendRedirect("./list");
 	      } catch (ClassNotFoundException e) {
 	         // TODO Auto-generated catch block
 	         e.printStackTrace();
