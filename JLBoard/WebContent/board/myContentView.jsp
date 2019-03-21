@@ -31,23 +31,23 @@
 			<table>
 				<tr>
 					<td>글 번호:</td>
-					<td><input type="text" id='no' name="no" value="${boardDto.no}" readonly="readonly"><br></td>
+					<td><input type="text" id='no' name="no" value="${myContentDto.no}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>제목:</td>
-					<td><input type="text" name="title" readonly="readonly"><br></td>
+					<td><input type="text" name="title" value="${myContentDto.title}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td><textarea name="content" rows="10" cols="100" readonly="readonly"></textarea> <br></td>
+					<td><textarea name="content" rows="10" cols="100" readonly="readonly">${myContentDto.content}</textarea> <br></td>
 				</tr>
 				<tr>
 					<td>글쓴이:</td>
-					<td><input type="text" name="writer" value="${boardUpdateDto.writer}" readonly="readonly"><br></td>
+					<td><input type="text" name="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>작성일:</td>
-					<td><input type="text" name="creDate" readonly="readonly"> <br></td>
+					<td><input type="text" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> <br></td>
 				</tr>
 		
 			</table>

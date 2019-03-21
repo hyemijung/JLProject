@@ -1,20 +1,19 @@
 package com.jl.board;
 
 import java.io.IOException;
-import java.lang.ProcessBuilder.Redirect;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@WebServlet(value="/board/myContentView")
 public class MyContentView extends HttpServlet{
 
 	
@@ -41,7 +40,7 @@ public class MyContentView extends HttpServlet{
 		String user = "jsp";
 		String password = "jsp";
 		
-		String writerStr = req.getParameter("writer");
+		int cNo = Integer.parseInt(req.getParameter("no"));
 		
 		String sql = "";
 		
@@ -52,13 +51,13 @@ public class MyContentView extends HttpServlet{
 						
 			sql = "SELECT NO, TITLE, WRITER, CONTENT, CREDATE";
 			sql += " FROM BOARD";
-			sql += " WHERE WRITER = ?";
+			sql += " WHERE NO = ?";
 			sql += " ORDER BY NO DESC";
 					
 									
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, writerStr);
+			pstmt.setInt(1,cNo);
 			
 			rs = pstmt.executeQuery();
 			System.out.println("쿼리 수행 성공");
@@ -77,7 +76,7 @@ public class MyContentView extends HttpServlet{
 			if (rs.next()) {  // 한명만 조회하므로 while문 대신 if문을 사용해도 된다(조금 더 빠름)
 				no = rs.getInt("NO");
 				title = rs.getString("TITLE");   // 대소문자 구분안함을 보이기위해
-				writer = rs.getString("WIRTER");
+				writer = rs.getString("WRITER");
 				content = rs.getString("CONTENT");
 				creDate = rs.getDate("CREDATE");
 				
@@ -105,7 +104,7 @@ public class MyContentView extends HttpServlet{
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+			e.printStackTrace();
 			
 			// 예외처리 페이지로 위엄
 			req.setAttribute("error", e);
