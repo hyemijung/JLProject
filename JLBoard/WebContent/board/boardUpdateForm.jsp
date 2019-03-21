@@ -25,7 +25,7 @@
 <body>
 
 <jsp:include page="/Header.jsp"/>
-		<h1>${boardUpdateDto.email} 회원 게시글 수정</h1>
+		<h1>${boardUpdateDto.writer} 회원 게시글 수정</h1>
 		
 	
 		<form action="./update" method="post">
