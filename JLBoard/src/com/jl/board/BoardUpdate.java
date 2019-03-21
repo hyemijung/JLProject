@@ -174,7 +174,7 @@ public class BoardUpdate extends HttpServlet {
 //			추가 - 새로고침할때마다 다시 남아있는 이전 양식의 수행을 막으려면?
 			res.sendRedirect("./list"); // 새 정보를 추가하고나서 ./list 경로를 던져서 - 상대경로를 찾아간다 
 										// 새로고침해도 양식이 다시 입력되지않고 상대경로로 찾아간다
-					
+			
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
