@@ -35,7 +35,7 @@ public class BoardAdd extends HttpServlet {
 		String user = "jsp";
 		String password = "jsp";
 
-//		req.setCharacterEncoding("UTF-8"); // -> web.xml 에서 관리가됨
+		req.setCharacterEncoding("UTF-8"); // -> web.xml 에서 관리가됨
 
 		// 번호는 시퀀스로 자동생성되는것이라 들고 오지않음	
 		String titleStr = req.getParameter("title"); // 한글깨지지 않는 셋팅하고 한글 넣고싶으면 넣어라

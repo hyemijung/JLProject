@@ -23,6 +23,6 @@
 		<input type="submit" value="수정">
 		<input type="button" value="메인화면" onclick='location="../"'>
 	</form>
-		<input type="button" value="탈퇴" onclick='location="./delete?no=${member.no}"'>
+		<input type="button" value="탈퇴" onclick='location="./delete?email=${member.email}"'>
 </body>
 </html>
