@@ -38,8 +38,7 @@
       <tr>
          <td>${boardDto.no}</td>   
          <td>
-            <a href="./myContentView?no=${boardDto.no}">${boardDto.title}</a>
-<%--             <a href="<%=request.getContextPath() %>/member/update?no="${sessionScope.member.no}">회원정보 수정</a> --%>
+            <a href='./MyContentView'>${boardDto.title}</a>
          </td>   
          <td>${boardDto.writer}</a>
          </td>   
