@@ -48,9 +48,12 @@ public class BoardUpdate extends HttpServlet {
 			conn = DriverManager.getConnection(url, user, password);
 			
 			// 수정을 위한 자신이 쓴글만을 조회하기위해 유일한 이메일주소(writer)를 사용한다		
-			sql = "SELECT NO, TITLE, WRITER, CONTENT, CREDATE";
-			sql += " FROM BOARD";
-			sql += " WHERE WRITER = ?";
+			sql = "SELECT B.NO, B.TITLE, B.WRITER, B.CREDATE";
+			sql += " FROM BOARD B, MEMBER M";
+			sql += " WHERE B.WRITER = M.EMAIL";
+			sql += " AND B.WRITER = ?";
+			sql += " ORDER BY B.NO DESC";
+			
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -65,7 +68,7 @@ public class BoardUpdate extends HttpServlet {
 			Date creDate = null;
 //			ArrayList<MemberDto> memberList = new ArrayList<MemberDto>(); //기본키를 통해 한명을 조회하므로 ArrayList를 쓸 이유가 없다
 			
-			BoardDto boardDto = null;
+			BoardDto boardUpdateDto = null;
 			
 			if (rs.next()) {  // 한명만 조회하므로 while문 대신 if문을 사용해도 된다(조금 더 빠름)
 				no = rs.getInt("NO");
@@ -74,17 +77,17 @@ public class BoardUpdate extends HttpServlet {
 				content = rs.getString("CONTENT");
 				creDate = rs.getDate("CREDATE");
 				
-				boardDto = new BoardDto();
+				boardUpdateDto = new BoardDto();
 				
-				boardDto.setNo(no);
-				boardDto.setTitle(title);
-				boardDto.setWriter(writer);;
-				boardDto.setContent(content);
-				boardDto.setCreDate(creDate);
+				boardUpdateDto.setNo(no);
+				boardUpdateDto.setTitle(title);
+				boardUpdateDto.setWriter(writer);;
+				boardUpdateDto.setContent(content);
+				boardUpdateDto.setCreDate(creDate);
 			}
 
 				
-				req.setAttribute("boardDto", boardDto);
+				req.setAttribute("boardUpdateDto", boardUpdateDto);
 				
 				res.setCharacterEncoding("UTF-8");
 				
@@ -158,6 +161,7 @@ public class BoardUpdate extends HttpServlet {
 			sql = "UPDATE BOARD";
 			sql += " SET TITLE = ?, CONTENT= ?,";
 			sql += " WHERE NO = ?";
+								
 			
 			pstmt = conn.prepareStatement(sql); //문장을 준비만 한것-+sql을 전체를 넣어서
 			

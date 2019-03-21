@@ -25,7 +25,7 @@
 <body>
 
 <jsp:include page="/Header.jsp"/>
-		<h1>${boardDto.email} 회원 게시글 수정</h1>
+		<h1>${boardUpdateDto.email} 회원 게시글 수정</h1>
 		
 	
 		<form action="./update" method="post">
@@ -33,23 +33,23 @@
 			<table>
 				<tr>
 					<td>글 번호:</td>
-					<td><input type="text" id='no' name="no" value="${boardDto.no}" readonly="readonly"><br></td>
+					<td><input type="text" id='no' name="no" value="${boardUpdateDto.no}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>제목:</td>
-					<td><input type="text" name="title" value="${boardDto.title}"><br></td>
+					<td><input type="text" name="title" value="${boardUpdateDto.title}"><br></td>
 				</tr>
 				<tr>
 					<td>내용:</td>
-					<td><textarea name="content" rows="10" cols="100">${boardDto.content}</textarea> <br></td>
+					<td><textarea name="content" rows="10" cols="100">${boardUpdateDto.content}</textarea> <br></td>
 				</tr>
 				<tr>
 					<td>글쓴이:</td>
-					<td><input type="text" name="writer" value="${boardDto.writer}"><br></td>
+					<td><input type="text" name="writer" value="${boardUpdateDto.writer}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>작성일:</td>
-					<td><input type="text" name="creDate" value="${requestScope.boardDto.creDate}" readonly="readonly"> <br></td>
+					<td><input type="text" name="creDate" value="${requestScope.boardUpdateDto.creDate}" readonly="readonly"> <br></td>
 				</tr>
 		
 			</table>
