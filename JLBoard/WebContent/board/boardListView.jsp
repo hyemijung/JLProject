@@ -38,7 +38,7 @@
       <tr>
          <td>${boardDto.no}</td>   
          <td>
-            <a href='./MyContentView'>${boardDto.title}</a>
+        <a href="./myContentView?no=${boardDto.no}">${boardDto.title}</a>
          </td>   
          <td>${boardDto.writer}</a>
          </td>   
