@@ -31,7 +31,6 @@
 		<tr>
 			<td>번호</td>	
 			<td>제목</td>	
-			<td>내용</td>	
 			<td>작성자</td>
 			<td>작성일</td>	
 			<td></td>	
@@ -41,13 +40,11 @@
 			<td>
 				${boardDto.title}</a>
 			</td>	
-			<td>${boardDto.content}</td>	
 			<td>
 				<a href='./update?writer=${boardDto.writer}'>${boardDto.writer}</a>
 			</td>	
 			<td>${boardDto.creDate}</td>	
 			<td>
-				<a href='./delete?writer=${boardDto.writer}'>[삭제]</a>
 			</td>	
 		</tr>
 	</c:forEach>
