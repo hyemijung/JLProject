@@ -29,13 +29,15 @@
 <!-- 	<form action="./add" method="post"> -->
 		
 			<table>
+			
+			
 				<tr>
 					<td>글 번호:</td>
 					<td><input type="text" id='no' name="no" value="${boardDto.no}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>제목:</td>
-					<td><input type="text" name="title" readonly="readonly"><br></td>
+					<td><input type="text" name="title" value="${boardDto.title}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>내용:</td>
@@ -43,11 +45,11 @@
 				</tr>
 				<tr>
 					<td>글쓴이:</td>
-					<td><input type="text" name="writer" value="${boardUpdateDto.writer}" readonly="readonly"><br></td>
+					<td><input type="text" name="writer" value="${boardDto.writer}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>작성일:</td>
-					<td><input type="text" name="creDate" readonly="readonly"> <br></td>
+					<td><input type="text" name="creDate" value="${boardDto.creDate}" readonly="readonly"> <br></td>
 				</tr>
 		
 			</table>
