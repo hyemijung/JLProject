@@ -13,7 +13,20 @@
 	}
 	
 	function deleteFnc() {
-		location.href = './delete';
+		var writer = document.getElementById('writer').value;
+		var email = document.getElementById('email').value;
+		if (writer != email) {
+			alert("삭제 권한이 없습니다");
+		}
+		
+		if (writer == email) {
+			
+		}
+			location.href = "./delete?no=" + ${myContentDto.no};	
+		
+		
+		
+		
 	}
 	
 	
@@ -27,7 +40,7 @@
 
 	<h1>게시글 보기</h1>
 <!-- 	<form action="./add" method="post"> -->
-		
+		<input type="hidden" id="email" value="${member.email}">
 			<table>
 				<tr>
 					<td>글 번호:</td>
@@ -43,7 +56,7 @@
 				</tr>
 				<tr>
 					<td>글쓴이:</td>
-					<td><input type="text" name="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
+					<td><input type="text" name="writer" id="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
 					<td>작성일:</td>
