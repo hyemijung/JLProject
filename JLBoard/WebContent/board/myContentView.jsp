@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>회원 등록</title>
-
 <script type="text/javascript">
 	function backPageFnc() {
 		location.href = './list';
@@ -20,17 +19,24 @@
 		}
 		
 		if (writer == email) {
-			
-		}
 			location.href = "./delete?no=" + ${myContentDto.no};	
-		
-		
-		
-		
+		}
 	}
 	
-	
+	function updateFnc() {
+		var writer = document.getElementById('writer').value;
+		var email = document.getElementById('email').value;
+		if (writer != email) {
+			alert("수정 권한이 없습니다");
+		}
+		
+		if (writer == email) {
+			location.href = "./update?writer="+writer;	
+		}
+	}
+// 	onclick='location="./update?writer=${myContentDto.writer}"
 </script>
+
 
 
 </head>
@@ -67,7 +73,7 @@
 		
 		
 		<input type="button" value="삭제" onclick="deleteFnc();">
-		 <input type="button" value="수정" onclick='location="./update?writer=${myContentDto.writer}"'>
+		 <input type="button" value="수정" onclick="updateFnc();">
 		<input type="button" value="뒤로가기" onclick="backPageFnc();">
 			
 <!-- 	</form> -->
@@ -76,4 +82,6 @@
 <%-- <jsp:include page="/Tail.jsp"/>   --%>
 
 </body>
+
+
 </html>

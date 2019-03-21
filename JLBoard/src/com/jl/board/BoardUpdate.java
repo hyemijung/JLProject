@@ -26,7 +26,7 @@ public class BoardUpdate extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) 
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		System.out.println("update의 doGet을 탄다");
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
