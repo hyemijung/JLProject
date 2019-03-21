@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,19 +33,17 @@
          <td>제목</td>   
          <td>작성자</td>
          <td>작성일</td>   
-         <td></td>   
+          
       </tr>
       <tr>
          <td>${boardDto.no}</td>   
          <td>
-            ${boardDto.title}</a>
+            <a href='./boardContentView.jsp'>${boardDto.title}</a>
          </td>   
-         <td>
-            <a href='./update?writer=${boardDto.writer}'>${boardDto.writer}</a>
+         <td>${boardDto.writer}</a>
          </td>   
          <td>${boardDto.creDate}</td>   
-         <td>
-         </td>   
+           
       </tr>
    </c:forEach>
 </table>
