@@ -35,38 +35,64 @@
 		}
 	}
 // 	onclick='location="./update?writer=${myContentDto.writer}"
+		
+		
 </script>
 
-
+<style type="text/css">
+	
+	#content {
+		border: 1px solid black;
+		width: 400px;
+		height: 450px;
+		vertical-align: top;
+		text-align: left;
+	}
+</style>
 
 </head>
 <body>
 
 <jsp:include page="/Header.jsp"/>
 
-	<h1>게시글 보기</h1>
-<!-- 	<form action="./add" method="post"> -->
+
+		
+		
+		<table>
+			<tr>
+				<td> <h2> ${myContentDto.no}&nbsp;&nbsp;&nbsp; ${myContentDto.title}</h2></td>
+			</tr>
+		</table>
+		
+		<table id="table">
+			<tr>
+				<td style="width:70px;">작성자 &nbsp;&nbsp;&nbsp; ${myContentDto.writer}</td>
+			</tr>
+			<tr>
+				<td>내용</td>
+			</tr>
+			
+			<tr>
+				<td id="content">${myContentDto.content}</td>
+			</tr>
+		</table>
+
 		<input type="hidden" id="email" value="${member.email}">
 			<table>
 				<tr>
-					<td>글 번호:</td>
-					<td><input type="text" id='no' name="no" value="${myContentDto.no}" readonly="readonly"><br></td>
+					<td><input type="hidden" id='no' name="no" value="${myContentDto.no}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
-					<td>제목:</td>
-					<td><input type="text" name="title" value="${myContentDto.title}" readonly="readonly"><br></td>
+					<td><input type="hidden" name="title" value="${myContentDto.title}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
-					<td>내용:</td>
-					<td><textarea name="content" rows="10" cols="100" readonly="readonly">${myContentDto.content}</textarea> <br></td>
+					<td><input type="hidden"  name="content" readonly="readonly" value="${myContentDto.content}"><br></td>
 				</tr>
 				<tr>
-					<td>글쓴이:</td>
-					<td><input type="text" name="writer" id="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
+					<td><input type="hidden" name="writer" id="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
 				</tr>
 				<tr>
-					<td>작성일:</td>
-					<td><input type="text" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> <br></td>
+					<td><input type="hidden" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> <br></td>
 				</tr>
 		
 			</table>
