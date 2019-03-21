@@ -1,6 +1,7 @@
 package com.jl.board;
 
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ public class MyContentView extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
+		doPost(req,res);
 		
 		
 	}
