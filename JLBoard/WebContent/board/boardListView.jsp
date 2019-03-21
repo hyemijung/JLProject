@@ -38,7 +38,7 @@
       <tr>
          <td>${boardDto.no}</td>   
          <td>
-            <a href='./boardContentView.jsp'>${boardDto.title}</a>
+            <a href='./myContentView.jsp'>${boardDto.title}</a>
          </td>   
          <td>${boardDto.writer}</a>
          </td>   
