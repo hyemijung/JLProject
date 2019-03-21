@@ -5,6 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+	body{
+		background-color: #FFE8FF;
+	}
+
+</style>
 <title>회원 등록</title>
 
 <script type="text/javascript">

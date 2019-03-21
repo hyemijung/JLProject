@@ -25,7 +25,7 @@ public class BoardDelete extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-
+		System.out.println("BoardDelete의 doGet를 한다");
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 				
@@ -87,7 +87,7 @@ public class BoardDelete extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("MemberUpdateServlet의 doPost를 한다");
+		System.out.println("BoardDelete의 doPost를 한다");
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;

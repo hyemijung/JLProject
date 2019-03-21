@@ -7,8 +7,39 @@
 <meta charset="UTF-8">
 <style type="text/css">
 	body{
-		background-color: lightyellow;
+		background-color: #FFE8FF;
 	}
+	
+	table{
+    border-collapse: collapse;
+    margin: 20px;
+   }
+    
+	
+   table, tr, td{
+    border: 2px solid black;
+   }
+		
+	.no {
+   	width: 100px; 
+   	text-align: center;
+   }
+   
+   .name{
+   	width: 250px;
+   	text-align: center;
+   	
+   	.email{
+  	width: 300px;
+   	text-align: center;
+   	}
+   	
+   	.creDate{
+   	width: 200px;
+   	text-align: center;
+   }
+   	
+   }
 </style>
 <title>JLBoard의 회원목록</title>
 </head>
@@ -24,16 +55,16 @@
 	<table>
 	<c:forEach var="memberDto" items="${memberList}">
 		<tr>
-			<td>회원번호</td>
-			<td>회원이름</td>
-			<td>&nbsp;&nbsp;&nbsp; 이메일</td>
-			<td>&nbsp;&nbsp;가입일</td>
+			<td class="no">회원번호</td>
+			<td class="name">회원이름</td>
+			<td class="email">&nbsp;&nbsp;&nbsp; 이메일</td>
+			<td class="creDate">&nbsp;&nbsp;가입일</td>
 		</tr>
 		<tr>
-			<td>${memberDto.no}</td>
-			<td>${memberDto.name}</td>
-			<td>&nbsp;&nbsp;${memberDto.email}&nbsp;&nbsp;</td>
-			<td>${memberDto.createDate}</td>
+			<td class="no">${memberDto.no}</td>
+			<td class="name">${memberDto.name}</td>
+			<td class="email">&nbsp;&nbsp;${memberDto.email}&nbsp;&nbsp;</td>
+			<td class="creDate">${memberDto.createDate}</td>
 		</tr>
 		</c:forEach>
 	</table>

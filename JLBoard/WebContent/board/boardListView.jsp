@@ -7,13 +7,38 @@
 <meta charset="UTF-8">
 <style type="text/css">
    table{
-      border-collapse: collapse;
-       
+    border-collapse: collapse;
+    margin: 20px;
    }
-
+    
+	
    table, tr, td{
-      border: 1px solid black;
+    border: 2px solid black;
    }
+   
+   body {
+    background: #FFE8FF;
+   }
+   
+   .no {
+   	width: 40px; 
+   	text-align: center;
+   }
+   
+   .title {
+   	width: 500px;
+   }
+   
+   .writer {
+   	width: 200px;
+   	text-align: center;
+   }
+   
+   .creDate{
+   	width: 150px;
+   	text-align: center;
+   }
+   
 </style>
 <title>게시판</title>
 </head>
@@ -29,20 +54,20 @@
 <table>
    <c:forEach var="boardDto" items="${boardList}">
       <tr>
-         <td>번호</td>   
-         <td>제목</td>   
-         <td>작성자</td>
-         <td>작성일</td>   
+         <td class="no">번호</td>   
+         <td class="title">제목</td>   
+         <td class="writer">작성자</td>
+         <td class="creDate">작성일</td>   
           
       </tr>
       <tr>
-         <td>${boardDto.no}</td>   
-         <td>
+         <td class="no">${boardDto.no}</td>   
+         <td class="title">
         <a href="./myContentView?no=${boardDto.no}">${boardDto.title}</a>
          </td>   
-         <td>${boardDto.writer}</a>
+         <td class="writer">${boardDto.writer}</a>
          </td>   
-         <td>${boardDto.creDate}</td>   
+         <td class="creDate">${boardDto.creDate}</td>   
            
       </tr>
    </c:forEach>

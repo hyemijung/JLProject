@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <style type="text/css">
 	body{
-		background-color: lightyellow;
+		background-color: #FFE8FF;
 	}
 </style>
 <title>회원가입</title>
