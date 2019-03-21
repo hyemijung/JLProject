@@ -54,7 +54,7 @@
 		
 		
 		<input type="button" value="삭제" onclick="deleteFnc();">
-		 <input type="button" value="수정" onclick='location="./update"'>
+		 <input type="button" value="수정" onclick='location="./update?writer=${myContentDto.writer}"'>
 		<input type="button" value="뒤로가기" onclick="backPageFnc();">
 			
 <!-- 	</form> -->

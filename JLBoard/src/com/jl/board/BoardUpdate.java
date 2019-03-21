@@ -48,7 +48,7 @@ public class BoardUpdate extends HttpServlet {
 			conn = DriverManager.getConnection(url, user, password);
 			
 			// 수정을 위한 자신이 쓴글만을 조회하기위해 유일한 이메일주소(writer)를 사용한다		
-			sql = "SELECT B.NO, B.TITLE, B.WRITER, B.CREDATE";
+			sql = "SELECT B.NO AS NO, B.TITLE AS TITLE, B.WRITER AS WRITER,B.CONTENT AS CONTENT, B.CREDATE AS CREDATE";
 			sql += " FROM BOARD B, MEMBER M";
 			sql += " WHERE B.WRITER = M.EMAIL";
 			sql += " AND B.WRITER = ?";
@@ -73,7 +73,7 @@ public class BoardUpdate extends HttpServlet {
 			if (rs.next()) {  // 한명만 조회하므로 while문 대신 if문을 사용해도 된다(조금 더 빠름)
 				no = rs.getInt("NO");
 				title = rs.getString("TITLE");   // 대소문자 구분안함을 보이기위해
-				writer = rs.getString("WIRTER");
+				writer = rs.getString("WRITER");
 				content = rs.getString("CONTENT");
 				creDate = rs.getDate("CREDATE");
 				
@@ -159,7 +159,7 @@ public class BoardUpdate extends HttpServlet {
 			conn = DriverManager.getConnection(url, user, password);
 
 			sql = "UPDATE BOARD";
-			sql += " SET TITLE = ?, CONTENT= ?,";
+			sql += " SET TITLE = ?, CONTENT= ?";
 			sql += " WHERE NO = ?";
 								
 			
