@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+	body{
+		background-color: #FFE8FF;
+	}
+
+</style>
 <title>게시판 글 목록 조회</title>
 
 <script type="text/javascript">

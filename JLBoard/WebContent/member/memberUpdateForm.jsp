@@ -6,6 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+	body{
+		background-color: #FFE8FF;
+	}
+
+</style>
 <title>회원정보 수정</title>
 </head>
 <body>
