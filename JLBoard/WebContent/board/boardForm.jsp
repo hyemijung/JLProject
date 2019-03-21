@@ -40,12 +40,12 @@
 				</tr>
 				<tr>
 					<td>글쓴이:</td>
-					<td><input type="text" name="writer" value="${boardUpdateDto.writer}" readonly="readonly"><br></td>
+					<td><input type="text" name="writer" value="${myContentDto.writer}" readonly="readonly" ><br></td>
 				</tr>
-<!-- 				<tr> -->
-<!-- 					<td>작성일:</td> -->
-<!-- 					<td><input type="text" name="creDate" > <br></td> -->
-<!-- 				</tr> -->
+				<tr>
+					<td>작성일:</td>
+					<td><input type="text" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> <br></td>
+				</tr>
 		
 			</table>
 		
