@@ -24,11 +24,15 @@ body {
 	text-align: center;
 }
 
-.title {
+.title1 {
 	width: 500px;
 	text-align: center;
 }
 
+.title2 {
+	width: 500px;
+	text-align: left;
+}
 .writer {
 	width: 200px;
 	text-align: center;
@@ -60,17 +64,17 @@ body {
 	<br>
 	<table>
 		<tr>
-			<td class="no">번호</td>
-			<td class="title">제목</td>
-			<td class="writer">작성자</td>
-			<td class="creDate">작성일</td>
+			<td class="no" style="font-weight: bold;">번호</td>
+			<td class="title1" style="font-weight: bold;">제목</td>
+			<td class="writer" style="font-weight: bold;">작성자</td>
+			<td class="creDate" style="font-weight: bold;">작성일</td>
 
 		</tr>
 		<c:forEach var="boardDto" items="${boardList}">
 
 			<tr>
 				<td class="no">${boardDto.no}</td>
-				<td class="title"><a href="./myContentView?no=${boardDto.no}">${boardDto.title}</a>
+				<td class="title2"><a href="./myContentView?no=${boardDto.no}">${boardDto.title}</a>
 				</td>
 				<td class="writer">${boardDto.writer}</a>
 				</td>
