@@ -86,19 +86,19 @@
 		<input type="hidden" id="email" value="${member.email}">
 			<table>
 				<tr>
-					<td><input type="hidden" id='no' name="no" value="${myContentDto.no}" readonly="readonly"><br></td>
+					<td><input type="hidden" id='no' name="no" value="${myContentDto.no}" readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td><input type="hidden" name="title" value="${myContentDto.title}" readonly="readonly"><br></td>
+					<td><input type="hidden" name="title" value="${myContentDto.title}" readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td><input type="hidden"  name="content" readonly="readonly" value="${myContentDto.content}"><br></td>
+					<td><input type="hidden"  name="content" readonly="readonly" value="${myContentDto.content}"></td>
 				</tr>
 				<tr>
-					<td><input type="hidden" name="writer" id="writer" value="${myContentDto.writer}" readonly="readonly"><br></td>
+					<td><input type="hidden" name="writer" id="writer" value="${myContentDto.writer}" readonly="readonly"></td>
 				</tr>
 				<tr>
-					<td><input type="hidden" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> <br></td>
+					<td><input type="hidden" name="creDate" value="${myContentDto.creDate}" readonly="readonly"> </td>
 				</tr>
 		
 			</table>

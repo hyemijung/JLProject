@@ -66,12 +66,15 @@ public class BoardAdd extends HttpServlet {
 			res.sendRedirect("./list"); // 새 정보를 추가하고나서 ./list 경로를 던져서 - 상대경로를 찾아간다
 										// 새로고침해도 양식이 다시 입력되지않고 상대경로로 찾아간다
 
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			req.setAttribute("error", e);
+			RequestDispatcher dispatcher =
+					req.getRequestDispatcher("/error2.jsp");
+			
+			dispatcher.forward(req, res);
+			
 		} finally {
 			if (pstmt != null) {
 				try {

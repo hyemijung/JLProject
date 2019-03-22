@@ -53,13 +53,13 @@
 	</br>
 	
 	<table>
-	<c:forEach var="memberDto" items="${memberList}">
 		<tr>
 			<td class="no">회원번호</td>
 			<td class="name">회원이름</td>
 			<td class="email">&nbsp;&nbsp;&nbsp; 이메일</td>
 			<td class="creDate">&nbsp;&nbsp;가입일</td>
 		</tr>
+	<c:forEach var="memberDto" items="${memberList}">
 		<tr>
 			<td class="no">${memberDto.no}</td>
 			<td class="name">${memberDto.name}</td>

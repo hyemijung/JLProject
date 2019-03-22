@@ -9,7 +9,7 @@
     	height: 20px; padding: 5px;">
     	
     	
-    	TPD(Team Project Demo)
+    	JLB(Junghyemi Leemyungsun Board)
     	<span style="float:right">
     	
     	<!-- email값이 없을 때 -->
