@@ -48,8 +48,8 @@
 <style type="text/css">
 	
 	#content {
-		border: 1px solid black;
-		width: 400px;
+		border: 2px solid black;
+		width: 550px;
 		height: 450px;
 		vertical-align: top;
 		text-align: left;
@@ -72,10 +72,10 @@
 		
 		<table id="table">
 			<tr>
-				<td style="width:70px;">작성자 &nbsp;&nbsp;&nbsp; ${myContentDto.writer}</td>
+				<td style="width:70px; font-weight: bold;">작성자 &nbsp;&nbsp;&nbsp; ${myContentDto.writer}</td>
 			</tr>
 			<tr>
-				<td>내용</td>
+				<td style="font-weight: bold;">내용</td>
 			</tr>
 			
 			<tr>

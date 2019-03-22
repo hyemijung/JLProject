@@ -4,6 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+	body{
+		background-color: #FFE8FF;
+	}
+</style>
 <meta charset="UTF-8">
 <title>로그인</title>
 

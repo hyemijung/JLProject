@@ -10,14 +10,14 @@
 	}
 
 </style>
-<title>Insert title here</title>
+<title>에러페이지</title>
 </head>
 <body>
 	<jsp:include page="/Header.jsp"></jsp:include>
 	<% 
 		Exception e = (Exception)request.getAttribute("error");
 		String msg = "";
-		msg = e.getMessage();
+		msg = e.getMessage();	
 	%>
 
 		<p>요청을 처리하는 중에 문제가 발생하였습니다. 잠시 후에 다시 요청해 주세요</p>

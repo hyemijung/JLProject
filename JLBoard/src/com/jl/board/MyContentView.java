@@ -97,7 +97,7 @@ public class MyContentView extends HttpServlet{
 				RequestDispatcher dispatcher = 
 						req.getRequestDispatcher("./myContentView.jsp");
 				
-				dispatcher.include(req, res);
+				dispatcher.forward(req, res);
 			
 //			}
 

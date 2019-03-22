@@ -29,7 +29,7 @@
 			<td><input type="password" name="password"></td>
 		</tr>
 	</table>
-	<input onclick='location="/TeamProjectDemo/MainPage.jsp"' type="button" value="메인 화면으로">
+	<input onclick='location="../"' type="button" value="메인 화면으로">
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	<input type="submit" value="가입">
 	<input type="reset" value="취소">
